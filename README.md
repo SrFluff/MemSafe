@@ -1,2 +1,2 @@
 # MemSafe
-A memory managmemnt framework for Python
+A memory managment framework for Python
