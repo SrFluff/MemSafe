@@ -1,14 +1,16 @@
-#MemSafe v1.0.0
+#MemSafe v1.1.0
 #Licensed under MIT
 #Made by Franco M.
 
 slot = []
 sat = []
+log = []
 
 def slotset(slot_set):
 
     global slot
     global sat
+    global log
 
     i = 1
 
@@ -19,10 +21,13 @@ def slotset(slot_set):
 
         i += 1
 
+    log.append('Max slots set to ' + str(slot_set))
+
 def alloc(slot_set, val):
 
     global slot
     global sat
+    global log
 
     try:
 
@@ -32,6 +37,8 @@ def alloc(slot_set, val):
 
                 slot[slot_set] = val
                 sat[slot_set] = 1
+
+                log.append('Allocated slot ' + str(slot_set))
 
             elif sat == 1:
 
@@ -49,6 +56,7 @@ def dealloc(slot_set):
 
     global slot
     global sat
+    global log
 
     try:
 
@@ -58,6 +66,8 @@ def dealloc(slot_set):
 
                 sat[slot_set] = 0
                 slot[slot_set] = 0
+
+                log.append('Deallocated slot ' + str(slot_set))
 
             elif sat[slot_set] == 0:
 
@@ -70,9 +80,3 @@ def dealloc(slot_set):
     except TypeError:
 
         print('Error - incorrect type')
-
-slotset(10)
-alloc(0, 'Zero')
-print(slot)
-dealloc(0)
-print(slot)
