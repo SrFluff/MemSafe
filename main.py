@@ -1,10 +1,14 @@
-#MemSafe v1.1.0
+#MemSafe v1.2.0
 #Licensed under MIT
 #Made by Franco M.
 
 slot = []
 sat = []
 log = []
+
+def addlog(text):
+
+    log.append(text)
 
 def slotset(slot_set):
 
@@ -80,3 +84,25 @@ def dealloc(slot_set):
     except TypeError:
 
         print('Error - incorrect type')
+
+def var():
+
+    global slot
+    global sat
+
+    i = 0
+
+    while i < len(slot):
+
+        print(f'{i}: {slot[i]} {sat[i]}')
+        i += 1
+
+def logsh():
+
+    i = 0
+
+    while i < len(log):
+
+        print(f'{log[i]}')
+
+        i += 1
