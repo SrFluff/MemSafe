@@ -1,4 +1,4 @@
-#MemSafe v1.2.0
+#MemSafe v1.3.0
 #Licensed under MIT
 #Made by Franco M.
 
@@ -106,3 +106,40 @@ def logsh():
         print(f'{log[i]}')
 
         i += 1
+
+def init():
+
+    main = True
+
+    print('MemSafe debugging shell')
+    print('MemSafe v1.3.0')
+    print("Type 'help' for a list of commands")
+
+    while main:
+
+        a = input('shell: ')
+
+        if a == 'var':
+
+            var()
+
+        elif a == 'exit':
+
+            exit()
+
+        elif a == 'log':
+
+            a = input('log: ')
+
+            addlog(a)
+
+        elif a == 'logsh':
+
+            logsh()
+
+        elif a == 'help':
+
+            print('var - prints all slots, values, and availability status')
+            print('log - adds a custom message to the log')
+            print('logsh - prints the log')
+            print('exit - exits the MemSafe debugging shell')
